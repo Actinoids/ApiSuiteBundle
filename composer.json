@@ -1,0 +1,32 @@
+{
+    "name": "actinoids/api-suite-bundle",
+    "description": "API Suite Bundle for Symfony2 projects",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Jacob Bare",
+            "email": "jacob.bare@gmail.com"
+        },
+        {
+            "name": "Josh Worden",
+            "email": "solocommand@gmail.com"
+        },
+        {
+            "name": "Curt Husting",
+            "email": "curt.husting@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {"Actinoids\\": "lib/"}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
