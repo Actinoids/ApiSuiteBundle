@@ -1,0 +1,33 @@
+parameters:
+    actinoids_api_suite.curl.kernel.class: Actinoids\ApiSuiteBundle\RemoteKernel\Curl\RemoteKernel
+    actinoids_api_suite.curl.client.class: Actinoids\ApiSuiteBundle\RemoteKernel\Curl\Client
+    actinoids_api_suite.curl.processor.header.class: Actinoids\ApiSuiteBundle\RemoteKernel\Curl\Processor\ResponseHeaderProcessor
+    actinoids_api_suite.curl.processor.body.class: Actinoids\ApiSuiteBundle\RemoteKernel\Curl\Processor\ResponseBodyProcessor
+    actinoids_api_suite.api_client.omeda.class: Actinoids\ApiSuiteBundle\ApiClient\Omeda\ApiClientOmeda
+    actinoids_api_suite.api_client.openx.class: Actinoids\ApiSuiteBundle\ApiClient\OpenX\ApiClientOpenX
+    actinoids_api_suite.oauth.kernel.class: Actinoids\ApiSuiteBundle\RemoteKernel\OAuth1a\RemoteKernel
+
+services:
+    actinoids_api_suite.curl.header_processor:
+        class: %actinoids_api_suite.curl.processor.header.class%
+    actinoids_api_suite.curl.body_processor:
+        class: %actinoids_api_suite.curl.processor.body.class%
+    actinoids_api_suite.curl.client:
+        class: %actinoids_api_suite.curl.client.class%
+        arguments: [@actinoids_api_suite.curl.header_processor, @actinoids_api_suite.curl.body_processor, @logger]
+        tags:
+            - { name: monolog.logger, channel: api_suite}
+    actinoids_api_suite.curl.kernel:
+        class: %actinoids_api_suite.curl.kernel.class%
+        arguments: [@actinoids_api_suite.curl.client]
+    actinoids_api_suite.oauth.kernel:
+        class: %actinoids_api_suite.oauth.kernel.class%
+        arguments: [@actinoids_api_suite.curl.client]
+    actinoids_api_suite.api_client.omeda:
+        class: %actinoids_api_suite.api_client.omeda.class%
+        calls:
+             - [setRemoteHttpKernel, [@actinoids_api_suite.curl.kernel]]
+    actinoids_api_suite.api_client.openx:
+        class: %actinoids_api_suite.api_client.openx.class%
+        calls:
+             - [setRemoteHttpKernel, [@actinoids_api_suite.oauth.kernel]]
