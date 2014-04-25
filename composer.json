@@ -22,7 +22,7 @@
         "ext-json": "*"
     },
     "autoload": {
-        "psr-4": {"Actinoids\\": "lib/"}
+        "psr-4": {"Actinoids\\": "lib/Actinoids/"}
     },
     "extra": {
         "branch-alias": {
