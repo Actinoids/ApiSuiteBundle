@@ -1,10 +1,8 @@
 <?php
 namespace Actinoids\ApiSuiteBundle\ApiClient;
 
-use 
-    Actinoids\ApiSuiteBundle\RemoteKernel\RemoteKernelInterface,
-    Symfony\Component\HttpFoundation\Request,
-    Symfony\Component\HttpFoundation\Response;
+use Actinoids\ApiSuiteBundle\RemoteKernel\RemoteKernelInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 interface ApiClientInterface
 {
