@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="./Tests/bootstrap.php" color="true">
+<phpunit bootstrap="./tests/bootstrap.php" color="true">
   <testsuites>
     <testsuite name="ApiSuiteBundle test suite">
-      <directory suffix="Test.php">./Tests</directory>
+      <directory suffix="Test.php">./tests</directory>
     </testsuite>
   </testsuites>
 
   <php>
-    <server name="KERNEL_DIR" value="./Tests/Functional/app" />
+    <server name="KERNEL_DIR" value="./tests/app" />
   </php>
 
   <filter>
     <whitelist>
       <directory>./</directory>
       <exclude>
-        <directory>./Resources</directory>
-        <directory>./Tests</directory>
+        <directory>./lib</directory>
+        <directory>./doc</directory>
         <directory>./vendor</directory>
-        <directory>./Features</directory>
       </exclude>
     </whitelist>
   </filter>
