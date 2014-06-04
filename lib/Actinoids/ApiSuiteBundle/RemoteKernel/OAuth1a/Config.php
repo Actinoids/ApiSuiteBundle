@@ -240,7 +240,7 @@ class Config {
             'POST',
         );
         if (!in_array($method, $supportedMethods)) {
-            throw new Exception(sprintf('Invalid request method. Only %s are supported.', implode(', ', $supportedMethods)));
+            throw new \Exception(sprintf('Invalid request method. Only %s are supported.', implode(', ', $supportedMethods)));
         }
         $this->requestMethod = $method;
         return $this;
