@@ -23,11 +23,3 @@ services:
     actinoids_api_suite.oauth.kernel:
         class: %actinoids_api_suite.oauth.kernel.class%
         arguments: [@actinoids_api_suite.curl.client]
-    actinoids_api_suite.api_client.omeda:
-        class: %actinoids_api_suite.api_client.omeda.class%
-        calls:
-             - [setRemoteHttpKernel, [@actinoids_api_suite.curl.kernel]]
-    actinoids_api_suite.api_client.openx:
-        class: %actinoids_api_suite.api_client.openx.class%
-        calls:
-             - [setRemoteHttpKernel, [@actinoids_api_suite.oauth.kernel]]
