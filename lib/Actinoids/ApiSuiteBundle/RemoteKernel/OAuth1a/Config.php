@@ -168,7 +168,7 @@ class Config {
             'PLAINTEXT',
         );
         if (!in_array($method, $supportedMethods)) {
-            throw new Exception(sprintf('Unsupported signature method. Only %s are supported.', implode(', ', $supportedMethods)));
+            throw new \Exception(sprintf('Unsupported signature method. Only %s are supported.', implode(', ', $supportedMethods)));
         }
       
         $this->signatureMethod = $method;
