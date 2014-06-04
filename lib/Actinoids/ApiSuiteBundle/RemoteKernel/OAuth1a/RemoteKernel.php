@@ -1,9 +1,7 @@
 <?php
 namespace Actinoids\ApiSuiteBundle\RemoteKernel\OAuth1a;
 
-use Symfony\Component\HttpFoundation\Request;
 use Actinoids\ApiSuiteBundle\RemoteKernel\Curl\Client;
-use Symfony\Component\HttpFoundation\Response;
 use Actinoids\ApiSuiteBundle\RemoteKernel\RemoteKernelInterface;
 use Actinoids\ApiSuiteBundle\RemoteKernel\BaseRemoteKernel;
 
